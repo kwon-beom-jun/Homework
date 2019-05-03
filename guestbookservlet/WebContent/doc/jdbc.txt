@@ -1,0 +1,40 @@
+*JDBC(Java DataBase Connectivity)
+1. Driver Loading
+
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+
+2. DB 연결 : Connection 생성
+
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@ipaddress:1521:sid", "id", "pwd");
+
+3. SQL 실행준비 : Statement 생성
+
+	String sql = "I U D S";
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+
+4. SQL 실행
+	
+	- 치환 변수 값 설정.
+	pstmt.setInt(index, 값);
+	pstmt.setString(index, 값);
+	.
+	.
+	.
+
+	4-1. I U D
+	int cnt = pstmt.executeUpdate();
+	
+	4-2. Select : ResultSet 생성
+	ResultSet rs = pstmt.executeQuery();
+	rs.next()
+	int x = rs.getInt("colName");
+	String s = rs.getSTring("colName");
+
+5. DB 연결 종료 : finally에서 연결 역순으로 close
+	if(rs != null)
+	  	rs.close();
+	if(pstmt != null)
+	  	pstmt.close();
+	if(conn != null)
+	  	conn.close();
+	
