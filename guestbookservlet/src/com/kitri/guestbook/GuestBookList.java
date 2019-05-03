@@ -12,9 +12,13 @@ public class GuestBookList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		
+		System.out.println("안녕하세요");
+//		1. get
 		
+//		2. DB저장하기
+		
+//		3.
 	}
 
 }

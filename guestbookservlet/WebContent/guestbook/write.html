@@ -10,9 +10,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-	function name() {
-		
+function writeArticle() {
+	if (document.getElementById("name").value == "") {
+		alert("이름을 입력하세요.");
+		return;
+	}else if (document.getElementById("subject").value == "") {
+		alert("제목을 입력하세요.");
+		return;
+	}else if (document.getElementById("content").value == "") {
+		alert("내용을 입력하세요.");
+		return;
+	}else {
+		document.getElementById("writeform").action = "/guestbookservlet/gbwrite";
+		document.getElementById("writeform").submit();
+		alert("글작성 성공");
 	}
+	
+}
 
 </script>
 </head>
